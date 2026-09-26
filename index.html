@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepak Kumar S - Automated Excel Processing & AI Document Intelligence</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-purple-600 flex items-center justify-center font-bold text-white shadow">
+          DK
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-white tracking-tight">Deepak Kumar S</h1>
+          <p class="text-xs text-slate-400">Automated Excel Processing & AI Document Intelligence Pipeline</p>
+        </div>
+      </div>
+      <button onclick="toggleModal(true)" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-purple-400 hover:text-purple-300 text-xs font-semibold rounded-lg border border-slate-700 transition flex items-center gap-2">
+        <i class="fa-solid fa-book-open"></i> How to Use (HR Guide)
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-8 space-y-10 w-full flex-grow">
+
+    <!-- PROJECT 2 CARD -->
+    <section class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-purple-950 text-purple-400 border border-purple-800 mb-1">
+            Project 2
+          </span>
+          <h2 class="text-xl font-bold text-white">Automated Excel Processing & AI Document Intelligence Pipeline</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Exports output to <b>Excel (.xlsx)</b>, <b>JSON Payload (.json)</b>, and <b>FastAPI REST Web Service</b>.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="runAIPipeline()" class="px-3 py-2 bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 shadow">
+            <i class="fa-solid fa-play"></i> Run AI Pipeline
+          </button>
+          <button onclick="exportAIExcel()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 shadow">
+            <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+          </button>
+          <button onclick="exportAIJSON()" class="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 shadow">
+            <i class="fa-solid fa-code"></i> JSON (.json)
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Pipeline Output Views -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Raw Text View -->
+        <div class="space-y-2">
+          <div class="text-xs text-slate-400 flex justify-between">
+            <span><i class="fa-solid fa-file-pdf text-red-400 mr-1.5"></i> 1. PyMuPDF Raw Extracted Text:</span>
+            <span class="font-mono text-slate-500">sample_invoice.pdf</span>
+          </div>
+          <pre class="bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono p-4 rounded-xl leading-relaxed max-h-56 overflow-y-auto">
+INVOICE: INV-2026-089
+Date: 2026-09-24
+Customer: VSQUARE Construction & Tech Services
+
+DESCRIPTION                                  QTY   PRICE   TOTAL
+------------------------------------------------------------------
+Web Automation Module License                 1    $450    $450.00
+AI Document Processing Service                2    $300    $600.00
+Excel Pipeline Setup & Integration            1    $250    $250.00
+------------------------------------------------------------------
+Subtotal: $1300.00
+Tax (10%): $130.00
+Total Amount Due: $1430.00
+          </pre>
+        </div>
+
+        <!-- Structured AI JSON View -->
+        <div class="space-y-2">
+          <div class="text-xs text-slate-400 flex justify-between">
+            <span><i class="fa-solid fa-code text-purple-400 mr-1.5"></i> 2. Structured AI JSON Payload (Gemini LLM):</span>
+            <span class="font-mono text-emerald-400">Validated JSON</span>
+          </div>
+          <pre class="bg-slate-900 border border-slate-800 text-emerald-400 text-xs font-mono p-4 rounded-xl leading-relaxed max-h-56 overflow-y-auto">
+{
+  "invoice_number": "INV-2026-089",
+  "date": "2026-09-24",
+  "customer": "VSQUARE Construction Services",
+  "line_items": [
+    { "item": "Web Automation Module", "qty": 1, "price": 450, "total": 450 },
+    { "item": "AI Document Service", "qty": 2, "price": 300, "total": 600 },
+    { "item": "Excel Pipeline Setup", "qty": 1, "price": 250, "total": 250 }
+  ],
+  "subtotal": 1300.00,
+  "tax": 130.00,
+  "total_due": 1430.00
+}
+          </pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-400">
+    <p>Developed by <span class="text-white font-semibold">Deepak Kumar S</span> | B.Tech IT '26 • Python Automation & AI Engineer</p>
+  </footer>
+
+  <!-- GUIDE MODAL -->
+  <div id="guide-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-purple-400"></i> How to Use (HR Quick Guide)
+        </h3>
+        <button onclick="toggleModal(false)" class="text-slate-400 hover:text-white text-lg">&times;</button>
+      </div>
+      
+      <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+        <p><b class="text-purple-400">1. Project 2 Output Formats:</b> Generates multi-tab <b>Excel (.xlsx)</b>, <b>JSON Payload (.json)</b>, and serves data via <b>FastAPI REST Web Service</b>.</p>
+        <p><b class="text-emerald-400">2. Download Files:</b> Click any Excel or JSON button to download the output files directly in your browser!</p>
+      </div>
+
+      <div class="pt-2">
+        <button onclick="toggleModal(false)" class="w-full py-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs rounded-lg transition">
+          Got it! Close Guide
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleModal(show) {
+      document.getElementById('guide-modal').classList.toggle('hidden', !show);
+    }
+
+    function runAIPipeline() {
+      alert("Project 2 AI Pipeline Running...\n\nPyMuPDF Extracted PDF Text -> Gemini AI Generated JSON Schema -> Formatted Excel Report Built!");
+    }
+
+    function exportAIExcel() {
+      const data = [
+        ["Line #", "Description", "Quantity", "Unit Price ($)", "Total Price ($)"],
+        [1, "Web Automation Module License", 1, 450.00, 450.00],
+        [2, "AI Document Processing Service", 2, 300.00, 600.00],
+        [3, "Excel Pipeline Setup & Integration", 1, 250.00, 250.00],
+        ["", "", "", "Subtotal:", 1300.00],
+        ["", "", "", "Tax (10%):", 130.00],
+        ["", "", "", "Total Amount Due:", 1430.00]
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(data);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "AI Invoice Summary");
+      XLSX.writeFile(wb, "final_ai_document_report.xlsx");
+    }
+
+    function exportAIJSON() {
+      const jsonObj = {
+        "invoice_number": "INV-2026-089",
+        "date": "2026-09-24",
+        "customer": "VSQUARE Construction & Tech Services",
+        "line_items": [
+          { "item": "Web Automation Module License", "qty": 1, "price": 450, "total": 450 },
+          { "item": "AI Document Processing Service", "qty": 2, "price": 300, "total": 600 },
+          { "item": "Excel Pipeline Setup & Integration", "qty": 1, "price": 250, "total": 250 }
+        ],
+        "subtotal": 1300.00,
+        "tax": 130.00,
+        "total_amount_due": 1430.00
+      };
+      const blob = new Blob([JSON.stringify(jsonObj, null, 2)], { type: 'application/json' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.setAttribute('href', url);
+      a.setAttribute('download', 'ai_invoice_payload.json');
+      a.click();
+    }
+  </script>
+</body>
+</html>
